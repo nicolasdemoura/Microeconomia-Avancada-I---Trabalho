@@ -1,0 +1,24 @@
+\begin{frame}
+    \frametitle{Spatiotemporal Settings}
+    \begin{itemize}
+        \item Spatiotemporal settings are common in many fields, such as economics, epidemiology, and environmental science.
+        \item Consider a setting with $N$ units observed over $T$ time periods:
+        \begin{align}
+        Y_{it} &= \beta\cdot X_{it} + U_{it}
+        \end{align}
+        where we are interested in testing the null hypothesis $H_0: \beta = 0$.
+        \item However, often it is not plausible to assume that the errors $u_{it}$ are independent across units and time periods.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Model- vs. Design-Based Approaches}
+    \begin{itemize}
+        \item Diferent approaches \citep{abadie2020ECTA} have been proposed to deal with spatiotemporal correlation in inference:
+        \begin{itemize}
+           \item \textbf{Model-based approaches:} asymptotically valid under assumptions about the covariance structure.
+           \item \textbf{Design-based approaches:} small-sample valid under homogeneous treatment effects and stationarity assumptions.
+        \end{itemize}
+        \item We propose to combine both approaches to obtain better inference in spatiotemporal settings.
+    \end{itemize}    
+\end{frame}

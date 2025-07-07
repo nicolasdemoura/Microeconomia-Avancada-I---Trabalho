@@ -1,0 +1,60 @@
+\begin{frame}
+    \frametitle{Introdução}
+
+    \begin{itemize}
+        \item O efeito da chuva na assiduidade no trabalho é um fenômeno observado em diversas regiões do mundo.
+        \item A chuva pode impactar a capacidade dos trabalhadores de chegar ao trabalho, afetando sua produtividade e, consequentemente, a economia local.
+        \item Este estudo busca analisar como a variação na precipitação influencia a frequência dos trabalhadores em seus postos de trabalho.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Dados}
+    Utilizarei dois conjuntos de dados principais:
+    \begin{itemize}
+        \item \textbf{Pesquisa de Origem e Destino (OD)}, que contém informações sobre os deslocamentos dos trabalhadores na Região Metropolitana de São Paulo em 2017.
+        \item \textbf{Centro Nacional de Monitoramento e Alertas de Desastres Naturais (CEMADEN)}, que fornece dados horários de precipitação para a mesma região.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Dados}
+    \framesubtitle{OD}
+    \begin{itemize}
+        \item
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Dados}
+    \framesubtitle{CEMADEN}
+    \begin{itemize}
+        \item
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Metodologia}
+    \begin{align*}
+    y_{ist} &= \tau \text{P}_{st} + X_{ist}'\beta + \alpha_{s} + \veps_{ist} \\ 
+    \end{align*}
+    onde:
+    \begin{itemize}
+        \item $y_{ist}$ é a variável dependente, que representa se o trabalhador $i$ na zona $s$ no tempo $t$ foi ao trabalho.
+        \item $\text{P}_{st}$ é a precipitação na zona de origem $s$ no tempo $t$.
+        \item $X_{ist}$ são as variáveis de controle, como idade, gênero, escolaridade do trabalhador.
+        \item $\alpha_{s}$ são os efeitos fixos da zona.
+        \item $\veps_{ist}$ é o termo de erro.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Metodologia}
+    \begin{itemize}
+        \item Nosso parâmetro de interesse é $\tau$, que mede o efeito da precipitação na probabilidade de um trabalhador ir ao trabalho.
+        \item Esperamos que $\tau$ seja negativo, indicando que um aumento na precipitação reduz a probabilidade de assiduidade no trabalho.
+        \item Potencialmente buscaremos identificar efeitos heterogêneos, considerando trabalhadores formais e informais, bem como atuantes em setores distintos.
+    \end{itemize}
+\end{frame}

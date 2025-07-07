@@ -1,0 +1,83 @@
+
+
+\section{Introdução}
+\begin{frame}
+    \frametitle{Introdução}
+    \begin{itemize}
+    \item Mudanças climáticas têm aumentado a frequência de eventos extremos.
+    \item Chuva intensa pode dificultar o deslocamento de trabalhadores.
+    \item Esse tipo de fricção afeta decisões de oferta de trabalho e produtividade.
+    \item Quantificar esses efeitos é importante para políticas urbanas e de mobilidade.
+    \end{itemize}
+\end{frame}
+
+\section{Dados}
+\begin{frame}
+    \frametitle{Dados}
+    Utilizarei dois conjuntos de dados principais:
+    \begin{itemize}
+        \item \textbf{Pesquisa de Origem e Destino (OD)}, que contém informações sobre os deslocamentos dos trabalhadores na Região Metropolitana de São Paulo em 2017.
+        \item \textbf{Centro Nacional de Monitoramento e Alertas de Desastres Naturais (CEMADEN)}, que fornece dados horários de precipitação para a mesma região.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Dados}
+    \framesubtitle{OD}
+    \begin{itemize}
+        \item A pesquisa foi realizada em 2017, e é representativa da Região Metropolitana de São Paulo.
+        \item Permite observar deslocamentos casa-trabalho e motivos de viagem.
+        \item Contém microdados individuais com idade, sexo, renda, ocupação e setor.
+    \item Permite criar variáveis indicando se a pessoa foi ao trabalho no dia da pesquisa.
+    \item Informações espaciais sobre zonas de origem e destino permite georefereciar os dados.
+    \end{itemize}
+\end{frame}
+\begin{frame}
+    \frametitle{Dados}
+    \framesubtitle{OD}
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.8\textwidth]{./figures/RMSP_centroids.png}
+        \caption{Centroides das zonas de origem e destino da Pesquisa de Origem e Destino (OD) na Região Metropolitana de São Paulo.}
+        \label{fig:od_centroids}
+    \end{figure} 
+\end{frame}
+
+
+
+\begin{frame}
+    \frametitle{Dados}
+    \framesubtitle{CEMADEN}
+    \begin{itemize}
+    \item Dados de chuva em alta frequência por estação pluviométrica.
+    \item Construção de série diária de precipitação por estação.
+    \item Mapeamento da estação mais próxima a cada zona da OD.
+    \item Geração de polígonos de Voronoi para definir áreas de cobertura de cada estação.
+    \end{itemize}
+\end{frame}
+
+\section{Metodologia}
+\begin{frame}[plain]
+    \frametitle{Metodologia}
+    \begin{align*}
+    y_{ist} &= \tau \cdot \text{P}_{st} + X_{ist}'\beta + \alpha_{s} + \veps_{ist} \\ 
+    \end{align*}
+    onde:
+    \begin{itemize}
+        \item $y_{ist}$ é a variável dependente, que representa se o trabalhador $i$ na zona $s$ no tempo $t$ foi ao trabalho.
+        \item $\text{P}_{st}$ é a precipitação na zona de origem $s$ no tempo $t$.
+        \item $X_{ist}$ são as variáveis de controle, como idade, gênero, escolaridade do trabalhador.
+        \item $\alpha_{s}$ são os efeitos fixos da zona.
+        \item $\veps_{ist}$ é o termo de erro.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Metodologia}
+    \begin{itemize}
+        \item Nosso parâmetro de interesse é $\tau$, que mede o efeito da precipitação na probabilidade de um trabalhador ir ao trabalho.
+        \item Esperamos que $\tau$ seja negativo, indicando que um aumento na precipitação reduz a probabilidade de assiduidade no trabalho.
+        \item Potencialmente buscaremos identificar efeitos heterogêneos, considerando trabalhadores formais e informais, bem como atuantes em setores distintos.
+    \end{itemize}
+\end{frame}

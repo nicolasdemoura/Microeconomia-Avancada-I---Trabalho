@@ -1,0 +1,81 @@
+\documentclass[compress,sans,12pt,aspectratio=169]{beamer}
+
+\input{packages}
+\input{preamble}
+\input{nicoeconomics}
+
+\newcommand{\textdest}[1]{\textbf{\textit{\textsc{#1}}}}
+
+\usetheme{Arguelles}
+\usepackage[sfdefault]{FiraSans}  % Load Fira Sans explicitly
+
+
+\uselanguage{portuguese}
+\makeatletter
+
+\newenvironment{myitemize}{%
+   \setlength{\topsep}{0pt}
+   \setlength{\partopsep}{0pt}
+   \renewcommand*{\@listi}{\leftmargin\leftmargini \parsep\z@ \topsep\z@ \itemsep\z@}
+   \let\@listI\@listi
+   \itemize
+}{\enditemize}
+\makeatother
+
+\usepackage{csquotes}
+\usepackage{tikz}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{ragged2e}
+\usepackage{forest}
+\usepackage{svg}
+\usepackage{natbib}
+\bibliographystyle{chicago}
+\usepackage{animate}
+
+\usetikzlibrary{trees}
+\usetikzlibrary{shapes}
+\usetikzlibrary{decorations.pathreplacing}
+
+
+\setbeamertemplate{section in toc}[ball]
+\setbeamertemplate{subsection in toc}[ball unnumbered]
+
+\title{\textbf{Efeito de Chuva em Assiduidade no Trabalho}}
+\event{}
+\date{June 3rd, 2025}
+\author{Nícolas de Moura \inst{\textdagger}}
+\institute{\inst{\textdagger} Escola de Economia de São Paulo - FGV/EESP}
+%\email{name@domain.com}
+%\homepage{www.mywebsite.com}
+%\github{username}
+
+\begin{document}
+
+\frame[plain]{\titlepage}
+
+    \begin{frame}[plain]
+        \frametitle{Outline}
+        \tableofcontents
+    \end{frame}
+
+    \section{Introdução}
+    \input{body/01_introduction}
+
+
+\End
+
+% Stop page numbering
+\setbeamertemplate{footline}[frame number]
+
+
+\begin{frame}[plain,standout]
+      \centering\LARGE{\textdest{Obrigado!}}
+\end{frame}
+
+\setbeamertemplate{footline}{}
+
+\begin{frame}[allowframebreaks]{References}
+    \bibliography{references}
+\end{frame}
+
+\end{document}
